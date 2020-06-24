@@ -12,7 +12,7 @@ class ListUsersService {
     const users = usersRepository.findAll();
 
     if (!users) {
-      throw new AppError('Transaction does not exist');
+      throw new AppError('Não há usuário cadastrados');
     }
 
     return users;
