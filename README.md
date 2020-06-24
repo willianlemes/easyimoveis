@@ -24,6 +24,24 @@ yarn
 
 Ao rodar o comando acima, aguarde a finalização da instalação das dependências e verifique se a pasta `node_modules` consta na árvore de arquivos do seu projeto. Lembre-se de atualizar a árvore caso a instalação tenha finalizado mas a pasta ainda não tenha aparecido.
 
+## Banco de dados
+
+Também é necessário instalar o banco de dados [PostgreSQL](https://www.postgresql.org) para funcionamento da persistência de dados, siga os passos orientados do próprio site do Postgres.
+
+A versão do PostgreSQL inicialmente é a 12.2
+
+Comando para visualizar a versão _Prompt de Comando_ ou _Terminal_:
+
+```cmd
+psql -V
+```
+
+Comando para visualizar a versão utilizando Docker:
+
+```bash
+docker exec -ti CONTAINER psql -V
+```
+
 ## Estrutura de pastas e arquivos
 
 > ### **node_modules**
