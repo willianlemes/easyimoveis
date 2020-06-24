@@ -1,3 +1,8 @@
-node_modules
-.DS_Store
+# Pasta gerada pela build
+dist
 
+# Módulos do node
+node_modules
+
+# Arquivos dos Sistemas Operacionais
+.DS_Store
