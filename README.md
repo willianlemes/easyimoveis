@@ -76,7 +76,7 @@ Sub-diretórios
 
 > ### **.editorconfig**
 
-Arquivo que ajudar manter estilos de código consistentes entre diferentes editores e IDEs. Aqui uma [referência](https://editorconfig.org/).
+Arquivo que vai ajudar manter estilos de código consistentes entre diferentes editores e IDEs. Aqui uma [referência](https://editorconfig.org/).
 
 > ### **.eslintrc.json**
 
