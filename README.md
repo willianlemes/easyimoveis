@@ -74,6 +74,14 @@ Sub-diretórios
 
 ---
 
+> ### **.editorconfig**
+
+Arquivo que vai ajudar manter estilos de código consistentes entre diferentes editores e IDEs. Aqui uma [referência](https://editorconfig.org/).
+
+> ### **.eslintrc.json**
+
+Arquivo com configurações do [eslint](https://eslint.org/) para ajudar na correção de problemas em tempo de desenvolvimento do código.
+
 > ### **.gitignore**
 
 Arquivo com o diretório e arquivos que o git olhará e ignorará, não os enviando para o _remote_.
