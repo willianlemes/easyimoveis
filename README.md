@@ -160,7 +160,7 @@ No exemplo acima é criado uma migration para **criar a tabela User**.
 | :--------------: | :------: | :-----------: | :------------------------------: |
 |      Create      |  Table   |     User      |       **CreateTableUser**        |
 |       Add        |    PK    |    Realty     |      **AddPKToProperties**       |
-|       Drop       |  Column  |   Nickname    | **DropColumnNicknameFromPeople** |
+|       Drop       |  Column  |    People     | **DropColumnNicknameFromPeople** |
 
 OBS:. Também é necessário criar a Model para a classe User.
 
