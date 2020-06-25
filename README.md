@@ -144,6 +144,50 @@ Arquivo que descreve as configurações e compilação do [Typescript](https://w
 
 Arquivo do **yarn** responsável por manter a versão exata das dependências para que haja instalação consistente entre máquinas e Sistemas Operacionais. Mais detalhes na [documentação do Yarn](https://classic.yarnpkg.com/en/docs/yarn-lock/#:~:text=lock,the%20root%20of%20your%20project.)
 
+## Criando Migrations
+
+As migrations são criadas pela CLI do TypeORM, identificada como typeorm. Para utilizá-lo, utilize seu _Terminal_ ou _Prompt de Comando_:
+
+```cmd
+yarn typeorm migration:create -n CreateTableUser
+```
+
+No exemplo acima é criado uma migration para **criar a tabela User**.
+
+> É importante manter um padrão para criação de migrations, tente sempre utilizar o padrão **Operação do CRUD, Elemento, Nome da Model**, exemplos:
+
+| Operação do CRUD | Elemento | Nome da Model |            Migration             |
+| :--------------: | :------: | :-----------: | :------------------------------: |
+|      Create      |  Table   |     User      |       **CreateTableUser**        |
+|       Add        |    PK    |    Realty     |      **AddPKToProperties**       |
+|       Drop       |  Column  |    People     | **DropColumnNicknameFromPeople** |
+
+OBS:. Também é necessário criar a Model para a classe User.
+
+## Migrations
+
+Para executá-las:
+
+```cmd
+yarn typeorm migration:run
+```
+
+Isso executa o método `up` que é implementado no arquivo da migration.
+
+Ao finalizar, confira então se tudo foi criado corretamente no seu banco de dados.
+
+## Revertendo migrations
+
+Isso executa o método `down` que é implementado no arquivo da migration.
+
+Para reverter, ou seja, desfazer as migrations:
+
+```cmd
+yarn typeorm migration:revert
+```
+
+OBS:. As migrations são revertidas de forma ascendente (da mais nova para a mais velha).
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
