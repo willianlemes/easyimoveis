@@ -1,21 +1,21 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('people')
-export class People {
-
-    @PrimaryGeneratedColumn()
+@Entity('peoples')
+class People {
+    @PrimaryGeneratedColumn('uuid')
     id: number;
 
-    @Column('varchar')
+    @Column({name:'name'})
     name: String;
 
-    @Column('varchar')
+    @Column({name:'nickname'})
     nickname: String;
 
-    @Column('varchar')
+    @Column({name:'profile'})
     profile: String;
     
-    @Column()
+    @Column({name:'type'})
     type: string;
 
 }
+export default People;
