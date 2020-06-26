@@ -12,7 +12,7 @@ class Realty {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(type => User, user => user.properties)
+  @ManyToOne(() => User, user => user.properties)
   @JoinColumn({ name: 'user_id' })
   user: User;
 

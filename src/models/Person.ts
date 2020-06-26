@@ -1,9 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('peoples')
-class People {
+@Entity('people')
+class Person {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column({ name: 'name' })
   name: string;
@@ -17,4 +17,4 @@ class People {
   @Column({ name: 'type' })
   type: string;
 }
-export default People;
+export default Person;
