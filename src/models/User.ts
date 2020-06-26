@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import Realty from './Realty';
 
 @Entity('users')
 class User {
@@ -7,6 +8,9 @@ class User {
 
   @Column({ name: 'first_name' })
   firstName: string;
+
+  @OneToMany(() => Realty, properties => properties.user)
+  properties: Realty[];
 }
 
 export default User;
