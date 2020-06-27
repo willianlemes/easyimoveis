@@ -11,26 +11,26 @@ export default class CreateTablePeople1593136447818
             name: 'id',
             type: 'uuid',
             generationStrategy: 'uuid',
-            isPrimary: true,
+            isPrimary: true
           },
           {
             name: 'name',
-            type: 'varchar',
+            type: 'varchar'
           },
           {
             name: 'nickname',
-            type: 'varchar',
+            type: 'varchar'
           },
           {
             name: 'profile',
-            type: 'varchar',
+            type: 'varchar'
           },
           {
             name: 'type',
-            type: 'varchar',
-          },
-        ],
-      }),
+            type: 'varchar'
+          }
+        ]
+      })
     );
   }
 

@@ -11,14 +11,14 @@ export default class CreateTableUser1593048139766
             name: 'id',
             type: 'uuid',
             generationStrategy: 'uuid',
-            isPrimary: true,
+            isPrimary: true
           },
           {
             name: 'first_name',
-            type: 'varchar',
-          },
-        ],
-      }),
+            type: 'varchar'
+          }
+        ]
+      })
     );
   }
 
