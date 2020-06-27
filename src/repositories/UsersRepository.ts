@@ -11,5 +11,5 @@ class UsersRepository {
     return this.users;
   }
 }
-
+console.log('AQUI É PRA TER CONFLITO');
 export default UsersRepository;
