@@ -4,15 +4,17 @@ class UsersRepository {
   private users: User[] = [
     {
       id: 1,
-      firstName: 'Carlos'
+      firstName: 'Carlos',
+      properties: []
     },
     {
       id: 2,
-      firstName: 'Eduardo'
+      firstName: 'Eduardo',
+      properties: []
     }
   ];
 
-  findAll() {
+  findAll(): User[] {
     return this.users;
   }
 }
