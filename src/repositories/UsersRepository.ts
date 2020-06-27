@@ -15,8 +15,8 @@ class UsersRepository {
     console.log('nada mesmo');
   }
 
-  nadaDeNovo(): void {
-    console.log('nada mais uma vez');
+  create(): void {
+    const teste = 'nada';
   }
 
   private josiel = 'vinicius';
