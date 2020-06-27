@@ -146,12 +146,14 @@ export default class CreateTableProperties1593059896477
         columnNames: ['user_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        name: 'fk_properties_user'
       })
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('properties');
+    await queryRunner.dropForeignKey('properties', 'fk_properties_user');
+    await queryRunner.dropTable('properties', true);
   }
 }

@@ -8,9 +8,6 @@ class User {
 
   @Column({ name: 'first_name' })
   firstName: string;
-
-  @OneToMany(() => Realty, properties => properties.user)
-  properties: Realty[];
 }
 
 export default User;
