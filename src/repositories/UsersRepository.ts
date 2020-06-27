@@ -18,6 +18,8 @@ class UsersRepository {
   nadaDeNovo(): void {
     console.log('nada mais uma vez');
   }
+
+  private josiel = 'vinicius';
 }
 
 export default UsersRepository;
