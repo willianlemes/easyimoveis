@@ -10,16 +10,6 @@ class UsersRepository {
   findAll(): User[] {
     return this.users;
   }
-
-  createNada(): void {
-    console.log('nada mesmo');
-  }
-
-  create(): void {
-    const teste = 'nada';
-  }
-
-  private josiel = 'vinicius';
 }
 
 export default UsersRepository;
