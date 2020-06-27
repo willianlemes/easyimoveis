@@ -1,18 +1,11 @@
 import User from '../models/User';
 
 class UsersRepository {
-  private users: User[] = [
-    {
-      id: 1,
-      firstName: 'Carlos',
-      properties: []
-    },
-    {
-      id: 2,
-      firstName: 'Eduardo',
-      properties: []
-    }
-  ];
+  private users: User[];
+
+  constructor() {
+    this.users = [];
+  }
 
   findAll(): User[] {
     return this.users;
