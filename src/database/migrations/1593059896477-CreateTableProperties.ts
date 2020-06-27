@@ -155,5 +155,6 @@ export default class CreateTableProperties1593059896477
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropForeignKey('properties', 'fk_properties_user');
     await queryRunner.dropTable('properties', true);
+    console.log('teste...');
   }
 }
