@@ -10,6 +10,14 @@ class UsersRepository {
   findAll(): User[] {
     return this.users;
   }
+
+  createNada(): void {
+    console.log('nada mesmo');
+  }
+
+  nadaDeNovo(): void {
+    console.log('nada mais uma vez');
+  }
 }
-console.log('AQUI É PRA TER CONFLITO');
+
 export default UsersRepository;
