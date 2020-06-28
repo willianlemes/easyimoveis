@@ -188,6 +188,12 @@ yarn typeorm migration:revert
 
 OBS:. As migrations são revertidas de forma ascendente (da mais nova para a mais velha).
 
+## Modelagem do Banco de dados
+
+A modelagem do banco de dados pode ser acessada através do [dbldiagram.io](https://dbdiagram.io/): https://dbdiagram.io/d/5ef8f48b0425da461f03f917
+
+Todos os colaboradores podem acessar e manipular as estruturas do banco de dados, conforme necessário.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
