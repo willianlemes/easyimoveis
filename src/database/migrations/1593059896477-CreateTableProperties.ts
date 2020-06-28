@@ -127,6 +127,14 @@ export default class CreateTableProperties1593059896477
             name: 'status',
             type: 'varchar',
             length: '1'
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp with time zone'
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp with time zone'
           }
         ]
       })

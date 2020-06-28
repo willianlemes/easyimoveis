@@ -3,7 +3,9 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  JoinColumn
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn
 } from 'typeorm';
 import User from './User';
 
@@ -81,6 +83,12 @@ class Realty {
 
   @Column({ name: 'status' })
   status: string;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }
 
 export default Realty;
