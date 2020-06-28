@@ -1,4 +1,10 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableColumn,
+  TableForeignKey
+} from 'typeorm';
 
 export default class CreateTableBusiness1593275441645
   implements MigrationInterface {
@@ -38,9 +44,30 @@ export default class CreateTableBusiness1593275441645
         ]
       })
     );
+
+    await queryRunner.addColumn(
+      'business',
+      new TableColumn({
+        name: 'users_id',
+        type: 'uuid'
+      })
+    );
+
+    await queryRunner.createForeignKey(
+      'business',
+      new TableForeignKey({
+        columnNames: ['users_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'users',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        name: 'fk_business_users'
+      })
+    );
   }
 
   async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropForeignKey('business', 'fk_business_users');
     await queryRunner.dropTable('business', true);
   }
 }
