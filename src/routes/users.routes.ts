@@ -1,15 +1,18 @@
 import { Router } from 'express';
-
-import ListUsersService from '../services/ListUsersService';
+import UsersRepository from '../repositories/UsersRepository';
 
 const usersRouter = Router();
+const usersRepository = new UsersRepository();
 
-usersRouter.get('/', async (_, response) => {
-  const listUsersService = new ListUsersService();
+usersRouter.post('/', async (request, response) => {
+  const { firstName, lastName, email } = request.body;
+  const user = usersRepository.create(firstName, lastName, email);
+  return response.json({ user });
+});
 
-  const users = await listUsersService.execute();
-
-  return response.json({ users });
+usersRouter.get('/', (request, response) => {
+  const users = usersRepository.all();
+  return response.json(users);
 });
 
 export default usersRouter;
