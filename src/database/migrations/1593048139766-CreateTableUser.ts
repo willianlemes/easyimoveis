@@ -11,7 +11,8 @@ export default class CreateTableUser1593048139766
             name: 'id',
             type: 'uuid',
             generationStrategy: 'uuid',
-            isPrimary: true
+            isPrimary: true,
+            default: 'uuid_generate_v4()'
           },
           {
             name: 'first_name',
