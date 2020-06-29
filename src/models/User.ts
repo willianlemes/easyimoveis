@@ -15,8 +15,7 @@ class User {
   @Column({ name: 'email' })
   email: string;
 
-  constructor(firstName: string, lastName: string, email: string) {
-    this.id = uuid();
+  constructor({ firstName, lastName, email }: User) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
