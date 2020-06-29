@@ -39,7 +39,7 @@ psql -V
 Comando para visualizar a versão utilizando Docker:
 
 ```bash
-docker exec -ti CONTAINER psql -V
+docker exec -it CONTAINER psql -V
 ```
 
 ## Estrutura de pastas e arquivos
@@ -162,7 +162,7 @@ No exemplo acima é criado uma migration para **criar a tabela User**.
 |       Add        |    PK    |    Realty     |      **AddPKToProperties**       |
 |       Drop       |  Column  |    People     | **DropColumnNicknameFromPeople** |
 
-OBS:. Também é necessário criar a Model para a classe User.
+OBS:. Também é necessário criar a Model para as classes.
 
 ## Migrations
 
