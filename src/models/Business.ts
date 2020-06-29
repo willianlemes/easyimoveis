@@ -27,7 +27,7 @@ class Business {
 
   @ManyToOne(() => Person)
   @JoinColumn({ name: 'customer_id', referencedColumnName: 'id' })
-  customer_id: Person;
+  customer: Person;
 
   @Column()
   title: string;
