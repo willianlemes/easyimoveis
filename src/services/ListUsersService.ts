@@ -1,16 +1,17 @@
+import { getRepository } from 'typeorm';
+
 import User from '../models/User';
-import UsersRepository from '../repositories/UsersRepository';
 
 import AppError from '../errors/AppError';
 
 class ListUsersService {
-  public execute(): User[] {
-    const usersRepository = new UsersRepository();
+  async execute(): Promise<User[]> {
+    const usersRepository = getRepository(User);
 
-    const users = usersRepository.findAll();
+    const users = await usersRepository.find();
 
-    if (!users) {
-      throw new AppError('Não há usuário cadastrados');
+    if (!users || users.length < 1) {
+      throw new AppError('Não há usuários cadastrados');
     }
 
     return users;

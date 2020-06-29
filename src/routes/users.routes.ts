@@ -4,10 +4,10 @@ import ListUsersService from '../services/ListUsersService';
 
 const usersRouter = Router();
 
-usersRouter.get('/', (_, response) => {
-  const listUsers = new ListUsersService();
+usersRouter.get('/', async (_, response) => {
+  const listUsersService = new ListUsersService();
 
-  const users = listUsers.execute();
+  const users = await listUsersService.execute();
 
   return response.json({ users });
 });
