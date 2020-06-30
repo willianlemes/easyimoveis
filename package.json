@@ -40,11 +40,14 @@
     "typescript": "^3.8.3"
   },
   "lint-staged": {
-    "*.ts": "eslint --fix"
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --allow-empty"
     }
   }
 }
