@@ -6,6 +6,6 @@ import personRoute from './properties.routes';
 const routes = Router();
 
 routes.use('/users', usersRouter);
-routes.use('/persons',personRoute);
+routes.use('/persons', personRoute);
 
 export default routes;
