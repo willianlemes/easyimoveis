@@ -19,7 +19,7 @@ class Person {
 
   @Column({ name: 'genre' })
   genre: string;
-  
+
   @Column({ name: 'datebirth' })
   datebirth: Date;
 
