@@ -89,10 +89,6 @@ class Realty {
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
-
-  public atoa(): void {
-    console.log('bem atoa');
-  }
 }
 
 export default Realty;
