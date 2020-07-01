@@ -53,7 +53,8 @@ export default class CreateTableProperties1593059896477
           {
             name: 'complement',
             type: 'varchar',
-            length: '255'
+            length: '255',
+            isNullable: true
           },
           {
             name: 'cep',
@@ -130,11 +131,13 @@ export default class CreateTableProperties1593059896477
           },
           {
             name: 'created_at',
-            type: 'timestamp with time zone'
+            type: 'timestamp with time zone',
+            default: 'now()'
           },
           {
             name: 'updated_at',
-            type: 'timestamp with time zone'
+            type: 'timestamp with time zone',
+            default: 'now()'
           }
         ]
       })
