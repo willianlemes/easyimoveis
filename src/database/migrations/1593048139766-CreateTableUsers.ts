@@ -16,7 +16,59 @@ export default class CreateTableUsers1593048139766
           },
           {
             name: 'first_name',
-            type: 'varchar'
+            type: 'varchar',
+            length: '255'
+          },
+          {
+            name: 'last_name',
+            type: 'varchar',
+            length: '255'
+          },
+          {
+            name: 'email',
+            type: 'varchar',
+            length: '255'
+          },
+          {
+            name: 'password',
+            type: 'varchar',
+            length: '60'
+          },
+          {
+            name: 'forget',
+            type: 'varchar',
+            length: '255',
+            isNullable: true
+          },
+          {
+            name: 'genre',
+            type: 'varchar',
+            length: '10'
+          },
+          {
+            name: 'date_birth',
+            type: 'date',
+            isNullable: true
+          },
+          {
+            name: 'photo',
+            type: 'varchar',
+            isNullable: true
+          },
+          {
+            name: 'status',
+            type: 'varchar',
+            length: '1'
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp with time zone',
+            default: 'now()'
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp with time zone',
+            default: 'now()'
           }
         ]
       })
