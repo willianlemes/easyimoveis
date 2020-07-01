@@ -1,5 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { uuid } from 'uuidv4';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn
+} from 'typeorm';
 
 @Entity('users')
 class User {
@@ -12,14 +17,32 @@ class User {
   @Column({ name: 'last_name' })
   lastName: string;
 
-  @Column({ name: 'email' })
+  @Column()
   email: string;
 
-  constructor({ firstName, lastName, email }: User) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-  }
+  @Column()
+  password: string;
+
+  @Column()
+  forget: string;
+
+  @Column()
+  genre: string;
+
+  @Column({ name: 'date_birth' })
+  dateBirth: Date;
+
+  @Column()
+  photo: string;
+
+  @Column()
+  status: string;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }
 
 export default User;
