@@ -1,9 +1,23 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn
+} from 'typeorm';
+
+import User from './User';
 
 @Entity('people')
 class Person {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'users_id', referencedColumnName: 'id' })
+  user: User;
 
   @Column({ name: 'name' })
   name: string;
@@ -64,5 +78,11 @@ class Person {
 
   @Column({ name: 'status' })
   status: string;
+
+  @CreateDateColumn({ name: 'created_at', default: 'now()' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at', default: 'now()' })
+  updatedAt: Date;
 }
 export default Person;
