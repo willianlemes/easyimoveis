@@ -1,5 +1,6 @@
-import { Repository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 import User from '../models/User';
+import UsersRepository from '../repositories/UsersRepository';
 
 interface Request {
   firstName: string;
@@ -12,12 +13,6 @@ interface Request {
 }
 
 class CreateUserService {
-  private usersRepository: Repository<User>;
-
-  constructor(usersRepository: Repository<User>) {
-    this.usersRepository = usersRepository;
-  }
-
   public async execute({
     firstName,
     lastName,
@@ -27,7 +22,15 @@ class CreateUserService {
     dateBirth,
     photo
   }: Request): Promise<User> {
-    const user = await this.usersRepository.create({
+    const usersRepository = getCustomRepository(UsersRepository);
+
+    const findEmail = usersRepository.findByEmail(email);
+
+    if (findEmail) {
+      throw new Error('User already registered');
+    }
+
+    const user = usersRepository.create({
       firstName,
       lastName,
       email,
@@ -37,6 +40,8 @@ class CreateUserService {
       photo,
       status: 'A'
     });
+
+    await usersRepository.save(user);
 
     return user;
   }
