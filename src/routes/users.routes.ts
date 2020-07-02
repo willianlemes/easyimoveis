@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import CreateUserService from '../services/CreateUserService';
-import ListUsersService from '../services/ListUsersService';
-import FindUserService from '../services/FindUserService';
-import UpdateUserService from '../services/UpdateUserService';
+import CreateUserService from '../services/users/CreateUserService';
+import ListUsersService from '../services/users/ListUsersService';
+import FindUserService from '../services/users/FindUserService';
+import UpdateUserService from '../services/users/UpdateUserService';
 
 const usersRouter = Router();
 

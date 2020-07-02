@@ -23,7 +23,7 @@ class User {
   @Column({ select: false })
   password: string;
 
-  @Column()
+  @Column({ select: false })
   forget: string;
 
   @Column()
@@ -38,10 +38,10 @@ class User {
   @Column()
   status: string;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({ name: 'created_at', select: false })
   createAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at', select: false })
   updatedAt: Date;
 }
 

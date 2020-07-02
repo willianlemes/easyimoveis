@@ -7,7 +7,11 @@
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
     "start": "ts-node src/index.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
+    "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -15,10 +19,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "faker": "^4.1.0",
     "multer": "^1.4.2",
     "pg": "^8.0.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.24",
+    "typeorm-seeding": "^1.6.1",
     "uuidv4": "^6.1.1"
   },
   "devDependencies": {
@@ -26,6 +32,7 @@
     "@types/cors": "^2.8.6",
     "@types/express": "4.17.3",
     "@types/express-serve-static-core": "4.17.2",
+    "@types/faker": "^4.1.12",
     "@types/multer": "^1.4.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
