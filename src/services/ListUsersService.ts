@@ -1,12 +1,11 @@
-import { getRepository } from 'typeorm';
-
+import { getCustomRepository } from 'typeorm';
+import UsersRepository from '../repositories/UsersRepository';
 import User from '../models/User';
-
 import AppError from '../errors/AppError';
 
 class ListUsersService {
-  async execute(): Promise<User[]> {
-    const usersRepository = getRepository(User);
+  public async execute(): Promise<User[]> {
+    const usersRepository = getCustomRepository(UsersRepository);
 
     const users = await usersRepository.find();
 
