@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import CreateUserService from '../services/CreateUserService';
 import ListUsersService from '../services/ListUsersService';
+import FindUserService from '../services/FindUserService';
+import UpdateUserService from '../services/UpdateUserService';
 
 const usersRouter = Router();
 
@@ -30,7 +32,7 @@ usersRouter.post('/', async (request, response) => {
 
     return response.json({ user });
   } catch (err) {
-    return response.status(401).json({ error: err.message });
+    return response.status(400).json({ error: err.message });
   }
 });
 
@@ -41,6 +43,49 @@ usersRouter.get('/', async (request, response) => {
     return response.json({ users });
   } catch (err) {
     return response.status(401).json({ error: err.message });
+  }
+});
+
+usersRouter.get('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+    const findUser = new FindUserService();
+    const user = await findUser.execute(id);
+    return response.json({ user });
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
+
+usersRouter.put('/', async (request, response) => {
+  try {
+    const {
+      id,
+      firstName,
+      lastName,
+      password,
+      genre,
+      dateBirth,
+      photo,
+      status
+    } = request.body;
+
+    const updateUser = new UpdateUserService();
+
+    const user = await updateUser.execute({
+      id,
+      firstName,
+      lastName,
+      password,
+      genre,
+      dateBirth,
+      photo,
+      status
+    });
+
+    return response.json({ user });
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
   }
 });
 

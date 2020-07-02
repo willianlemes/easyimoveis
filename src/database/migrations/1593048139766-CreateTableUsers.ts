@@ -27,17 +27,16 @@ export default class CreateTableUsers1593048139766
           {
             name: 'email',
             type: 'varchar',
-            length: '255'
+            length: '255',
+            isUnique: true
           },
           {
             name: 'password',
-            type: 'varchar',
-            length: '60'
+            type: 'varchar'
           },
           {
             name: 'forget',
             type: 'varchar',
-            length: '255',
             isNullable: true
           },
           {
