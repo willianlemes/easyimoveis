@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 const propertiesRouter = Router();
 
-propertiesRouter.get('/', (request, response) => {
+propertiesRouter.get('/', (_, response) => {
   response.json({ message: 'Hello World' });
 });
 
