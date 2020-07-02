@@ -25,7 +25,7 @@ export default class CreateTableBusiness1593275441645
           },
           {
             name: 'expected_closure',
-            type: 'timestamp with time zone'
+            type: 'date'
           },
           {
             name: 'probability',
@@ -33,15 +33,18 @@ export default class CreateTableBusiness1593275441645
           },
           {
             name: 'annotations',
-            type: 'text'
+            type: 'text',
+            isNullable: true
           },
           {
             name: 'created_at',
-            type: 'timestamp with time zone'
+            type: 'timestamp with time zone',
+            default: 'now()'
           },
           {
             name: 'updated_at',
-            type: 'timestamp with time zone'
+            type: 'timestamp with time zone',
+            default: 'now()'
           }
         ]
       })
