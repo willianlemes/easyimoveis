@@ -18,64 +18,64 @@ class Realty {
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user: User;
 
-  @Column({ name: 'finality' })
+  @Column({ name: 'finality', nullable: true })
   finality: string;
 
-  @Column({ name: 'kind' })
+  @Column({ name: 'kind', nullable: true })
   kind: string;
 
-  @Column({ name: 'price' })
+  @Column({ name: 'price', nullable: true })
   price: number;
 
-  @Column({ name: 'address' })
+  @Column({ name: 'address', nullable: true })
   address: string;
 
-  @Column({ name: 'address_number' })
+  @Column({ name: 'address_number', nullable: true })
   addressNumber: string;
 
-  @Column({ name: 'neighborhood' })
+  @Column({ name: 'neighborhood', nullable: true })
   neighborhood: string;
 
-  @Column({ name: 'complement' })
+  @Column({ name: 'complement', nullable: true })
   complement: string;
 
-  @Column({ name: 'cep' })
+  @Column({ name: 'cep', nullable: true })
   cep: string;
 
-  @Column({ name: 'city' })
+  @Column({ name: 'city', nullable: true })
   city: string;
 
-  @Column({ name: 'state' })
+  @Column({ name: 'state', nullable: true })
   state: string;
 
-  @Column({ name: 'measure_type' })
+  @Column({ name: 'measure_type', nullable: true })
   measureType: string;
 
-  @Column({ name: 'zone_front' })
+  @Column({ name: 'zone_front', nullable: true })
   zoneFront: number;
 
-  @Column({ name: 'zone_bottom' })
+  @Column({ name: 'zone_bottom', nullable: true })
   zoneBottom: number;
 
-  @Column({ name: 'zone_left' })
+  @Column({ name: 'zone_left', nullable: true })
   zoneLeft: number;
 
-  @Column({ name: 'zone_right' })
+  @Column({ name: 'zone_right', nullable: true })
   zoneRight: number;
 
-  @Column({ name: 'number_dorms' })
+  @Column({ name: 'number_dorms', nullable: true })
   numberDorms: number;
 
-  @Column({ name: 'number_suites' })
+  @Column({ name: 'number_suites', nullable: true })
   numberSuites: number;
 
-  @Column({ name: 'number_bathrooms' })
+  @Column({ name: 'number_bathrooms', nullable: true })
   numberBathrooms: number;
 
-  @Column({ name: 'number_room' })
+  @Column({ name: 'number_room', nullable: true })
   numberRoom: number;
 
-  @Column({ name: 'cars_capacity' })
+  @Column({ name: 'cars_capacity', nullable: true })
   carsCapacity: number;
 
   @Column({ name: 'is_furnished' })
@@ -84,10 +84,10 @@ class Realty {
   @Column({ name: 'status' })
   status: string;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({ name: 'created_at', default: 'now()' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at', default: 'now()' })
   updatedAt: Date;
 }
 
