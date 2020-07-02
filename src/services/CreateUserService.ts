@@ -24,7 +24,7 @@ class CreateUserService {
   }: Request): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
 
-    const findEmail = usersRepository.findByEmail(email);
+    const findEmail = await usersRepository.findByEmail(email);
 
     if (findEmail) {
       throw new Error('User already registered');
