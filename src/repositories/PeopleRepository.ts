@@ -1,14 +1,13 @@
+import { EntityRepository, Repository } from 'typeorm';
 import Person from '../models/Person';
 
-class PeopleRepository {
-  private people: Person[];
-
-  constructor() {
-    this.people = [];
-  }
-
-  findAll(): Person[] {
-    return this.people;
+@EntityRepository(Person)
+class PeopleRepository extends Repository<Person> {
+  public async findByCpfCnpj(cpf_cnjp: string): Promise<Person | null> {
+    const findPerson = await this.findOne({
+      where: { cpf_cnjp }
+    });
+    return findPerson || null;
   }
 }
 
