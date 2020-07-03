@@ -36,7 +36,7 @@ usersRouter.post('/', async (request, response) => {
   }
 });
 
-usersRouter.get('/', async (request, response) => {
+usersRouter.get('/', async (_, response) => {
   try {
     const listUsers = new ListUsersService();
     const users = await listUsers.execute();
