@@ -1,14 +1,17 @@
+import { EntityRepository, Repository } from 'typeorm';
+
 import Realty from '../models/Realty';
 
-class PropertiesRepository {
-  private properties: Realty[];
+@EntityRepository(Realty)
+class PropertiesRepository extends Repository<Realty> {
+  async findByUser(id: string): Promise<Realty[] | null> {
+    const properties = await this.find({
+      where: {
+        userId: id
+      }
+    });
 
-  constructor() {
-    this.properties = [];
-  }
-
-  findAll(): Realty[] {
-    return this.properties;
+    return properties || null;
   }
 }
 
