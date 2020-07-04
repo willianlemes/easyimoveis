@@ -23,7 +23,7 @@ class CreatePeopleService {
     const checkPeopleExists = await peopleRepository.findByCpfCnpj(cpf_cnpj);
 
     if (checkPeopleExists) {
-      throw new Error('CFP_CNPJ already registered');
+      throw new Error('Já existe uma pessoa cadastrada com esse CPF/CNPJ.');
     }
 
     const people = peopleRepository.create({
