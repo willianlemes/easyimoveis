@@ -4,14 +4,20 @@ import Realty from '../models/Realty';
 
 @EntityRepository(Realty)
 class PropertiesRepository extends Repository<Realty> {
-  async findByUser(id: string): Promise<Realty[] | null> {
-    const properties = await this.find({
+  async findByUser(userId: string): Promise<Realty[]> {
+    return this.find({
       where: {
-        userId: id
+        userId
       }
     });
+  }
 
-    return properties || null;
+  async findByOwner(ownerId: string): Promise<Realty[]> {
+    return this.find({
+      where: {
+        ownerId
+      }
+    });
   }
 }
 
