@@ -7,7 +7,9 @@ import {
   CreateDateColumn,
   UpdateDateColumn
 } from 'typeorm';
+
 import User from './User';
+import Person from './Person';
 
 @Entity('properties')
 class Realty {
@@ -21,65 +23,72 @@ class Realty {
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user: User;
 
+  @Column({ name: 'owner_id' })
+  ownerId: string;
+
+  @ManyToOne(() => Person)
+  @JoinColumn({ name: 'owner_id', referencedColumnName: 'id' })
+  person: Person;
+
   @Column({ name: 'finality', nullable: true })
-  finality: string;
+  finality?: string;
 
   @Column({ name: 'kind', nullable: true })
-  kind: string;
+  kind?: string;
 
   @Column({ name: 'price', nullable: true })
-  price: number;
+  price?: number;
 
   @Column({ name: 'address', nullable: true })
-  address: string;
+  address?: string;
 
   @Column({ name: 'address_number', nullable: true })
-  addressNumber: string;
+  addressNumber?: string;
 
   @Column({ name: 'neighborhood', nullable: true })
-  neighborhood: string;
+  neighborhood?: string;
 
   @Column({ name: 'complement', nullable: true })
-  complement: string;
+  complement?: string;
 
   @Column({ name: 'cep', nullable: true })
-  cep: string;
+  cep?: string;
 
   @Column({ name: 'city', nullable: true })
-  city: string;
+  city?: string;
 
   @Column({ name: 'state', nullable: true })
-  state: string;
+  state?: string;
 
   @Column({ name: 'measure_type', nullable: true })
-  measureType: string;
+  measureType?: string;
 
   @Column({ name: 'zone_front', nullable: true })
-  zoneFront: number;
+  zoneFront?: number;
 
   @Column({ name: 'zone_bottom', nullable: true })
-  zoneBottom: number;
+  zoneBottom?: number;
 
   @Column({ name: 'zone_left', nullable: true })
-  zoneLeft: number;
+  zoneLeft?: number;
 
   @Column({ name: 'zone_right', nullable: true })
-  zoneRight: number;
+  zoneRight?: number;
 
   @Column({ name: 'number_dorms', nullable: true })
-  numberDorms: number;
+  numberDorms?: number;
 
   @Column({ name: 'number_suites', nullable: true })
-  numberSuites: number;
+  numberSuites?: number;
 
   @Column({ name: 'number_bathrooms', nullable: true })
-  numberBathrooms: number;
+  numberBathrooms?: number;
 
   @Column({ name: 'number_room', nullable: true })
-  numberRoom: number;
+  numberRoom?: number;
 
   @Column({ name: 'cars_capacity', nullable: true })
-  carsCapacity: number;
+  carsCapacity?: number;
 
   @Column({ name: 'is_furnished' })
   isFurnished: boolean;
