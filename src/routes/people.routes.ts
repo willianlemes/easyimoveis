@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import CreatePeopleService from '../services/people/CreatePeopleService';
+import ListPeopleService from '../services/people/ListPeopleService';
 
 const peopleRoute = Router();
 
@@ -20,6 +21,14 @@ peopleRoute.post('/', async (request, response) => {
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
+});
+
+peopleRoute.get('/', async (request, response) => {
+  const people = new ListPeopleService();
+
+  const listPeople = await people.execute();
+
+  return response.json(listPeople);
 });
 
 export default peopleRoute;
