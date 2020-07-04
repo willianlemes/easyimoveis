@@ -7,14 +7,14 @@ import Realty from '../../models/Realty';
 import AppError from '../../errors/AppError';
 
 class FindPropertiesByUserService {
-  async execute(id: string): Promise<Realty[]> {
+  async execute(userId: string): Promise<Realty[]> {
     const propertiesRepository = getCustomRepository(PropertiesRepository);
 
-    const properties = await propertiesRepository.findByUser(id);
+    const properties = await propertiesRepository.findByUser(userId);
 
     if (!properties || properties.length < 1) {
       throw new AppError(
-        'Não há propriedades cadastradas por esse usuário',
+        'Não há propriedades cadastradas por este usuário',
         404
       );
     }
