@@ -2,6 +2,7 @@ import { getCustomRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 import User from '../../models/User';
 import UsersRepository from '../../repositories/UsersRepository';
+import AppError from '../../errors/AppError';
 
 interface Request {
   firstName: string;
@@ -9,7 +10,7 @@ interface Request {
   email: string;
   password: string;
   genre: string;
-  dateBirth: string;
+  dateBirth: Date;
   photo: string;
 }
 
@@ -28,7 +29,21 @@ class CreateUserService {
     const checkUserExists = await usersRepository.findByEmail(email);
 
     if (checkUserExists) {
-      throw new Error('Já existe um usuário cadastrado com esse e-mail.');
+      throw new AppError('Já existe um usuário cadastrado com esse e-mail.');
+    }
+
+    if (genre) {
+      if (['M', 'F', 'O'].indexOf(genre) === -1) {
+        throw new AppError('O gênero do usuário não é válido.');
+      }
+    }
+
+    if (dateBirth) {
+      if (dateBirth > new Date()) {
+        throw new AppError(
+          'A data de aniversário do usuário não pode ser maior que a data atual.'
+        );
+      }
     }
 
     const hashedPassword = await hash(password, 8);

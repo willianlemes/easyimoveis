@@ -17,25 +17,25 @@ class User {
   @Column({ name: 'last_name' })
   lastName: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column({ select: false })
   password: string;
 
   @Column({ select: false })
-  forget: string;
+  forget?: string;
 
   @Column()
-  genre: string;
+  genre?: string;
 
   @Column({ name: 'date_birth' })
-  dateBirth: Date;
+  dateBirth?: Date;
 
   @Column()
-  photo: string;
+  photo?: string;
 
-  @Column()
+  @Column({ default: 'A' })
   status: string;
 
   @CreateDateColumn({ name: 'created_at', select: false })
