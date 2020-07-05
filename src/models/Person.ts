@@ -15,6 +15,9 @@ class Person {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column({ name: 'users_id' })
+  users_id: string;
+
   @ManyToOne(() => User)
   @JoinColumn({ name: 'users_id', referencedColumnName: 'id' })
   user: User;

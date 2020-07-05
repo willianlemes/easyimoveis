@@ -1,42 +1,38 @@
-import { getCustomRepository } from 'typeorm';
+import { getRepository } from 'typeorm';
 import Person from '../../models/Person';
-import PeopleRepository from '../../repositories/PeopleRepository';
 
 interface Request {
+  users_id: string;
   name: string;
   nickname: string;
   profile: string;
   type: string;
-  cpf_cnpj: string;
+  genre?: string;
+  datebirth?: Date;
+  rg_ie?: string;
+  cpf_cnpj?: string;
+  occupation?: string;
+  email?: string;
+  phone?: string;
+  cell_phone?: string;
+  address?: string;
+  address_number?: string;
+  neighborhood?: string;
+  cep?: string;
+  state?: string;
+  city?: string;
+  photo?: string;
+  status?: string;
 }
 
 class CreatePeopleService {
-  public async execute({
-    name,
-    nickname,
-    profile,
-    type,
-    cpf_cnpj
-  }: Request): Promise<Person> {
-    const peopleRepository = getCustomRepository(PeopleRepository);
+  public async execute(request: Request): Promise<Person | null> {
+    const peopleRepository = getRepository(Person);
 
-    const checkPeopleExists = await peopleRepository.findByCpfCnpj(cpf_cnpj);
+    const people = peopleRepository.create({ ...request });
 
-    if (checkPeopleExists) {
-      throw new Error('Já existe uma pessoa cadastrada com esse CPF/CNPJ.');
-    }
+    return peopleRepository.save(people);
 
-    const people = peopleRepository.create({
-      name,
-      nickname,
-      profile,
-      type,
-      cpf_cnpj
-    });
-
-    await peopleRepository.save(people);
-
-    return people;
   }
 }
 
