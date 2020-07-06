@@ -28,6 +28,12 @@ class UpdateUserService {
   }: Request): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
 
+    if (genre) {
+      if (['M', 'F', 'O'].indexOf(genre) === -1) {
+        throw new AppError('O gênero do usuário não é válido.');
+      }
+    }
+
     if (dateBirth) {
       if (dateBirth > new Date()) {
         throw new AppError(
