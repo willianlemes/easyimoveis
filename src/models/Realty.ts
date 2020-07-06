@@ -10,6 +10,7 @@ import {
 
 import User from './User';
 import Person from './Person';
+import { Finality } from '../enums';
 
 @Entity('properties')
 class Realty {
@@ -31,7 +32,7 @@ class Realty {
   person: Person;
 
   @Column({ name: 'finality', nullable: true })
-  finality?: string;
+  finality: Finality;
 
   @Column({ name: 'kind', nullable: true })
   kind?: string;

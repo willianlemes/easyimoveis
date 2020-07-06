@@ -6,6 +6,8 @@ import {
   UpdateDateColumn
 } from 'typeorm';
 
+import { Genre, Status } from '../enums';
+
 @Entity('users')
 class User {
   @PrimaryGeneratedColumn('uuid')
@@ -27,7 +29,7 @@ class User {
   forget?: string;
 
   @Column()
-  genre?: string;
+  genre?: Genre;
 
   @Column({ name: 'date_birth' })
   dateBirth?: Date;
@@ -35,8 +37,8 @@ class User {
   @Column()
   photo?: string;
 
-  @Column({ default: 'A' })
-  status: string;
+  @Column({ default: Status.ACTIVE })
+  status: Status;
 
   @CreateDateColumn({ name: 'created_at', select: false })
   createAt: Date;

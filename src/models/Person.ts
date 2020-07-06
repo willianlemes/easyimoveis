@@ -10,6 +10,8 @@ import {
 
 import User from './User';
 
+import { Profile, Type, Genre, Status } from '../enums';
+
 @Entity('people')
 class Person {
   @PrimaryGeneratedColumn('uuid')
@@ -29,13 +31,13 @@ class Person {
   nickname: string;
 
   @Column({ name: 'profile' })
-  profile: string;
+  profile: Profile;
 
-  @Column({ name: 'type' })
-  type: string;
+  @Column({ name: 'type', default: Type.PHYSISCS })
+  type: Type;
 
   @Column({ name: 'genre', nullable: true })
-  genre: string;
+  genre: Genre;
 
   @Column({ name: 'datebirth', nullable: true })
   datebirth: Date;
@@ -79,8 +81,8 @@ class Person {
   @Column({ name: 'photo', nullable: true })
   photo: string;
 
-  @Column({ name: 'status', nullable: true })
-  status: string;
+  @Column({ name: 'status', default: Status.ACTIVE })
+  status: Status;
 
   @CreateDateColumn({ name: 'created_at', default: 'now()' })
   createdAt: Date;
