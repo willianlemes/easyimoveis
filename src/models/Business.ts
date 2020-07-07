@@ -17,13 +17,22 @@ class Business {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column({ name: 'user_id' })
+  userId: string;
+
   @ManyToOne(() => User)
   @JoinColumn({ name: 'users_id', referencedColumnName: 'id' })
   user: User;
 
+  @Column({ name: 'realty_id', type: 'uuid' })
+  realtyId: string;
+
   @ManyToOne(() => Realty)
   @JoinColumn({ name: 'realty_id', referencedColumnName: 'id' })
   realty: Realty;
+
+  @Column({ name: 'customer_id' })
+  customerId: string;
 
   @ManyToOne(() => Person)
   @JoinColumn({ name: 'customer_id', referencedColumnName: 'id' })
@@ -35,8 +44,8 @@ class Business {
   @Column({ length: 100 })
   stage: string;
 
-  @Column()
-  expected_closure: Date;
+  @Column({ name: 'expected_closure' })
+  expectedClosure: Date;
 
   @Column()
   probability: number;
