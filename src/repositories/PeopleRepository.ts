@@ -9,6 +9,17 @@ class PeopleRepository extends Repository<Person> {
     });
     return findPerson || null;
   }
+
+  public async findPeopleByUserService(
+    users_id: string
+  ): Promise<Person | null> {
+    const findUser = await this.findOne({
+      where: {
+        users_id
+      }
+    });
+    return findUser || null;
+  }
 }
 
 export default PeopleRepository;
