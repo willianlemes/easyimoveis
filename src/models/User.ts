@@ -28,7 +28,7 @@ class User {
   @Column({ select: false })
   forget?: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   genre?: Genre;
 
   @Column({ name: 'date_birth' })
@@ -37,7 +37,7 @@ class User {
   @Column()
   photo?: string;
 
-  @Column({ default: Status.ACTIVE })
+  @Column({ type: 'varchar', length: 1, default: Status.ACTIVE })
   status: Status;
 
   @CreateDateColumn({ name: 'created_at', select: false })

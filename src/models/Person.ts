@@ -30,23 +30,23 @@ class Person {
   @Column({ name: 'nickname' })
   nickname: string;
 
-  @Column({ name: 'profile' })
+  @Column({ type: 'varchar' })
   profile: Profile;
 
-  @Column({ name: 'type', default: Type.PHYSISCS })
+  @Column({ type: 'varchar', length: 1, default: Type.PHYSISCS })
   type: Type;
 
-  @Column({ name: 'genre', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   genre: Genre;
 
   @Column({ name: 'datebirth', nullable: true })
   datebirth: Date;
 
   @Column({ name: 'rg_ie', nullable: true })
-  rg_ie: string;
+  rgIe: string;
 
   @Column({ name: 'cpf_cnpj', nullable: true })
-  cpf_cnpj: string;
+  cpfCnpj: string;
 
   @Column({ name: 'occupation', nullable: true })
   occupation: string;
@@ -58,7 +58,7 @@ class Person {
   phone: string;
 
   @Column({ name: 'cell_phone', nullable: true })
-  cell_phone: string;
+  cellPhone: string;
 
   @Column({ name: 'address', nullable: true })
   address: string;
@@ -81,7 +81,7 @@ class Person {
   @Column({ name: 'photo', nullable: true })
   photo: string;
 
-  @Column({ name: 'status', default: Status.ACTIVE })
+  @Column({ type: 'varchar', length: 1, default: Status.ACTIVE })
   status: Status;
 
   @CreateDateColumn({ name: 'created_at', default: 'now()' })

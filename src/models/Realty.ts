@@ -31,7 +31,7 @@ class Realty {
   @JoinColumn({ name: 'owner_id', referencedColumnName: 'id' })
   person: Person;
 
-  @Column({ name: 'finality', nullable: true })
+  @Column({ type: 'varchar', name: 'finality', nullable: true })
   finality: Finality;
 
   @Column({ name: 'kind', nullable: true })
