@@ -32,7 +32,6 @@ class CreatePeopleService {
     const people = peopleRepository.create({ ...request });
 
     return peopleRepository.save(people);
-
   }
 }
 
