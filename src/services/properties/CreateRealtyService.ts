@@ -2,10 +2,12 @@ import { getRepository } from 'typeorm';
 
 import Realty from '../../models/Realty';
 
+import { Finality, Status } from '../../enums';
+
 interface Request {
   userId: string;
   ownerId: string;
-  finality?: string;
+  finality?: Finality;
   kind?: string;
   price?: number;
   address?: string;
@@ -26,11 +28,11 @@ interface Request {
   numberRoom?: number;
   carsCapacity?: number;
   isFurnished: boolean;
-  status: string;
+  status: Status;
 }
 
 class CreateRealtyService {
-  async execute(request: Request): Promise<Realty | null> {
+  async execute(request: Request): Promise<Realty> {
     const realtyRepository = getRepository(Realty);
 
     const realtyEntity = realtyRepository.create({ ...request });
