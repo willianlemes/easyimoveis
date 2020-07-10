@@ -32,7 +32,7 @@ class Realty {
   person: Person;
 
   @Column({ type: 'varchar', name: 'finality', nullable: true })
-  finality: Finality;
+  finality?: Finality;
 
   @Column({ name: 'kind', nullable: true })
   kind?: string;
