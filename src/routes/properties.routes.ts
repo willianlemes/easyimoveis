@@ -4,8 +4,17 @@ import CreateRealtyService from '../services/properties/CreateRealtyService';
 import FindPropertiesByUserService from '../services/properties/FindPropertiesByUserService';
 import FindPropertiesByOwnerService from '../services/properties/FindPropertiesByOwnerService';
 import UpdateRealtyService from '../services/properties/UpdateRealtyService';
+import ListPropertiesService from '../services/properties/ListPropertiesService';
 
 const propertiesRouter = Router();
+
+propertiesRouter.get('/', async (_, response) => {
+  const listProperties = new ListPropertiesService();
+
+  const properties = await listProperties.execute();
+
+  return response.json({ properties });
+});
 
 propertiesRouter.post('/', async (request, response) => {
   const createRealty = new CreateRealtyService();
@@ -32,7 +41,7 @@ propertiesRouter.get('/user/:user_id', async (request, response) => {
 
   const properties = await findPropertiesByUser.execute(user_id);
 
-  response.json({ properties });
+  return response.json({ properties });
 });
 
 propertiesRouter.get('/owner/:owner_id', async (request, response) => {
@@ -42,7 +51,7 @@ propertiesRouter.get('/owner/:owner_id', async (request, response) => {
 
   const properties = await findPropertiesByOwner.execute(owner_id);
 
-  response.json({ properties });
+  return response.json({ properties });
 });
 
 export default propertiesRouter;
