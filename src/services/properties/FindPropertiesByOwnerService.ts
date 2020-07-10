@@ -13,7 +13,7 @@ class FindPropertiesByOwnerService {
     const properties = await propertiesRepository.findByOwner(ownerId);
 
     if (!properties || properties.length < 1) {
-      throw new AppError('Não há propriedades para este proprietário', 404);
+      throw new AppError('Não há propriedades para este proprietário.', 404);
     }
 
     return properties;
