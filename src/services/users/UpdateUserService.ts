@@ -34,12 +34,10 @@ class UpdateUserService {
       }
     }
 
-    if (dateBirth) {
-      if (dateBirth > new Date()) {
-        throw new AppError(
-          'A data de aniversário do usuário não pode ser maior que a data atual.'
-        );
-      }
+    if (dateBirth && dateBirth > new Date()) {
+      throw new AppError(
+        'A data de aniversário do usuário não pode ser maior que a data atual.'
+      );
     }
 
     if (status) {

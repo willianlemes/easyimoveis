@@ -36,7 +36,7 @@ class CreateBusinessService {
     const user = usersRepository.findOne({
       where: {
         id: userId
-      },
+      }, // select * from users
       select: ['id']
     });
 
