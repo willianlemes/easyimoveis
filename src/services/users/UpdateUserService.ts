@@ -40,10 +40,8 @@ class UpdateUserService {
       );
     }
 
-    if (status) {
-      if (['A', 'I'].indexOf(status) === -1) {
-        throw new AppError('O status do usuário não é válido.');
-      }
+    if (status && !['A', 'I'].includes(status)) {
+      throw new AppError('O status do usuário não é válido.');
     }
 
     const hashedPassword = await hash(password, 8);

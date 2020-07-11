@@ -3,9 +3,9 @@ import Person from '../models/Person';
 
 @EntityRepository(Person)
 class PeopleRepository extends Repository<Person> {
-  public async findByCpfCnpj(cpf_cnjp: string): Promise<Person | null> {
+  public async findByCpfCnpj(cpfCnpj: string): Promise<Person | null> {
     const findPerson = await this.findOne({
-      where: { cpf_cnjp }
+      where: { cpfCnpj }
     });
     return findPerson || null;
   }

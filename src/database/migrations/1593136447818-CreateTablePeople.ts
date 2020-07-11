@@ -41,7 +41,7 @@ export default class CreateTablePeople1593136447818
             isNullable: true
           },
           {
-            name: 'datebirth',
+            name: 'date_birth',
             type: 'date',
             isNullable: true
           },
@@ -126,8 +126,7 @@ export default class CreateTablePeople1593136447818
           {
             name: 'status',
             type: 'varchar',
-            length: '1',
-            isNullable: true
+            length: '1'
           },
           {
             name: 'created_at',

@@ -18,7 +18,7 @@ class Person {
   id: string;
 
   @Column({ name: 'users_id' })
-  users_id: string;
+  userId: string;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'users_id', referencedColumnName: 'id' })
@@ -39,7 +39,7 @@ class Person {
   @Column({ type: 'varchar', nullable: true })
   genre: Genre;
 
-  @Column({ name: 'datebirth', nullable: true })
+  @Column({ name: 'date_birth', nullable: true })
   datebirth: Date;
 
   @Column({ name: 'rg_ie', nullable: true })
@@ -84,10 +84,10 @@ class Person {
   @Column({ type: 'varchar', length: 1, default: Status.ACTIVE })
   status: Status;
 
-  @CreateDateColumn({ name: 'created_at', default: 'now()' })
+  @CreateDateColumn({ name: 'created_at', select: false, default: 'now()' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', default: 'now()' })
+  @UpdateDateColumn({ name: 'updated_at', select: false, default: 'now()' })
   updatedAt: Date;
 }
 export default Person;

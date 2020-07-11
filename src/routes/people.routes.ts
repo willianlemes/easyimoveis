@@ -3,21 +3,58 @@ import CreatePeopleService from '../services/people/CreatePeopleService';
 import ListPeopleService from '../services/people/ListPeopleService';
 import FindPeopleService from '../services/people/FindPeopleService';
 import FindPeopleByUserService from '../services/people/FindPeopleByUserService';
-import PeopleRepository from '../repositories/PeopleRepository';
 
 const peopleRoute = Router();
 
 peopleRoute.post('/', async (request, response) => {
+  const {
+    userId,
+    name,
+    nickname,
+    profile,
+    type,
+    genre,
+    datebirth,
+    rgIe,
+    cpfCnpj,
+    occupation,
+    email,
+    phone,
+    cellPhone,
+    address,
+    addressNumber,
+    neighborhood,
+    cep,
+    state,
+    city,
+    photo
+  } = request.body;
+
   const createPeople = new CreatePeopleService();
-  const { cpf_cnpj } = request.body;
-  const peopleRepository = new PeopleRepository();
+  const people = await createPeople.execute({
+    userId,
+    name,
+    nickname,
+    profile,
+    type,
+    genre,
+    datebirth,
+    rgIe,
+    cpfCnpj,
+    occupation,
+    email,
+    phone,
+    cellPhone,
+    address,
+    addressNumber,
+    neighborhood,
+    cep,
+    state,
+    city,
+    photo
+  });
 
-  const checkCnpj = peopleRepository.findByCpfCnpj(cpf_cnpj);
-
-  if (checkCnpj) {
-    const people = await createPeople.execute(request.body);
-    response.json({ people });
-  }
+  response.json({ people });
 });
 
 peopleRoute.get('/', async (_, response) => {
@@ -28,7 +65,7 @@ peopleRoute.get('/', async (_, response) => {
   return response.json(listPeople);
 });
 
-peopleRoute.get('/peoples/:id', async (request, response) => {
+peopleRoute.get('/:id', async (request, response) => {
   const { id } = request.params;
   const people = new FindPeopleService();
   const person = await people.execute(id);
@@ -36,9 +73,9 @@ peopleRoute.get('/peoples/:id', async (request, response) => {
 });
 
 peopleRoute.get('/users/:users_id', async (request, response) => {
-  const { users_id } = request.params;
+  const { userId } = request.params;
   const people = new FindPeopleByUserService();
-  const peopleByUserService = await people.execute(users_id);
+  const peopleByUserService = await people.execute(userId);
   return response.json(peopleByUserService);
 });
 

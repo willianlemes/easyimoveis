@@ -1,35 +1,68 @@
-import { getRepository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 import Person from '../../models/Person';
-
-interface Request {
-  users_id: string;
-  name: string;
-  nickname: string;
-  profile: string;
-  type: string;
-  genre?: string;
-  datebirth?: Date;
-  rg_ie?: string;
-  cpf_cnpj?: string;
-  occupation?: string;
-  email?: string;
-  phone?: string;
-  cell_phone?: string;
-  address?: string;
-  address_number?: string;
-  neighborhood?: string;
-  cep?: string;
-  state?: string;
-  city?: string;
-  photo?: string;
-  status?: string;
-}
+import PeopleRepository from '../../repositories/PeopleRepository';
+import AppError from '../../errors/AppError';
+import Status from '../../enums/Status';
+import RequestCreatePeople from './interfaces/RequestCreatePeople';
 
 class CreatePeopleService {
-  public async execute(request: Request): Promise<Person | null> {
-    const peopleRepository = getRepository(Person);
+  public async execute({
+    userId,
+    name,
+    nickname,
+    profile,
+    type,
+    genre,
+    datebirth,
+    rgIe,
+    cpfCnpj,
+    occupation,
+    email,
+    phone,
+    cellPhone,
+    address,
+    addressNumber,
+    neighborhood,
+    cep,
+    state,
+    city,
+    photo
+  }: RequestCreatePeople): Promise<Person> {
+    const peopleRepository = getCustomRepository(PeopleRepository);
 
-    const people = peopleRepository.create({ ...request });
+    if (cpfCnpj) {
+      const checkCnpj = await peopleRepository.findByCpfCnpj(cpfCnpj);
+
+      if (checkCnpj) {
+        throw new AppError(
+          'Já existe uma pessoa com esse CPF/CNPJ cadastrada.'
+        );
+      }
+    }
+
+    const people = peopleRepository.create({
+      userId,
+      name,
+      nickname,
+      profile,
+      type,
+      genre,
+      datebirth,
+      rgIe,
+      cpfCnpj,
+      occupation,
+      email,
+      phone,
+      cellPhone,
+      address,
+      addressNumber,
+      neighborhood,
+      cep,
+      state,
+      city,
+      photo,
+      status: Status.ACTIVE
+    });
 
     return peopleRepository.save(people);
   }

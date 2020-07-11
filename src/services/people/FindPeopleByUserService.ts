@@ -4,10 +4,10 @@ import PeopleRepository from '../../repositories/PeopleRepository';
 import AppError from '../../errors/AppError';
 
 class FindPeopleByUserService {
-  async execute(user_id: string): Promise<Person> {
+  async execute(userId: string): Promise<Person> {
     const peopleRepository = getCustomRepository(PeopleRepository);
 
-    const people = await peopleRepository.findPeopleByUserService(user_id);
+    const people = await peopleRepository.findPeopleByUserService(userId);
 
     if (!people) {
       throw new AppError('Pessoa nao cadastrada');

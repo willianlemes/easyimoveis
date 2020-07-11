@@ -32,7 +32,7 @@ class User {
   genre?: Genre;
 
   @Column({ name: 'date_birth' })
-  dateBirth?: Date;
+  dateBirth: Date;
 
   @Column()
   photo?: string;
@@ -41,7 +41,7 @@ class User {
   status: Status;
 
   @CreateDateColumn({ name: 'created_at', select: false })
-  createAt: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({ name: 'updated_at', select: false })
   updatedAt: Date;
