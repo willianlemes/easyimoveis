@@ -2,8 +2,8 @@ import { getCustomRepository } from 'typeorm';
 import Person from '../../models/Person';
 import PeopleRepository from '../../repositories/PeopleRepository';
 import AppError from '../../errors/AppError';
-import Status from '../../enums/Status';
 import RequestCreatePeople from './interfaces/RequestCreatePeople';
+import { Status } from '../../enums';
 
 class CreatePeopleService {
   public async execute({
@@ -38,9 +38,19 @@ class CreatePeopleService {
           'Já existe uma pessoa com esse CPF/CNPJ cadastrada.'
         );
       }
-      if (genre && !['M', 'F', 'O'].includes(genre)) {
-        throw new AppError('O gênero da pessoa não é válido.');
-      }
+    }
+    if (genre && !['M', 'F', 'O'].includes(genre)) {
+      throw new AppError('O gênero da pessoa não é válido.');
+    }
+    if (type && !['F', 'J'].includes(type)) {
+      throw new AppError('O tipo da pessoa não é válido.');
+    }
+
+    if (
+      profile &&
+      !['Customer', 'Broker', 'Interested', 'Other'].includes(profile)
+    ) {
+      throw new AppError('O perfil cadastrado não é válido');
     }
 
     const people = peopleRepository.create({
