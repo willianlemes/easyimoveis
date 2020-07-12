@@ -11,7 +11,7 @@ export default class AddFKUsersToPeople1593650880457
     await queryRunner.addColumn(
       'people',
       new TableColumn({
-        name: 'users_id',
+        name: 'user_id',
         type: 'uuid'
       })
     );
@@ -19,18 +19,18 @@ export default class AddFKUsersToPeople1593650880457
     await queryRunner.createForeignKey(
       'people',
       new TableForeignKey({
-        columnNames: ['users_id'],
+        columnNames: ['user_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
-        name: 'fk_people_users'
+        name: 'fk_people_user'
       })
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('people', 'fk_people_users');
-    await queryRunner.dropColumn('people', 'users_id');
+    await queryRunner.dropForeignKey('people', 'fk_people_user');
+    await queryRunner.dropColumn('people', 'user_id');
   }
 }

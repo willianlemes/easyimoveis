@@ -11,7 +11,7 @@ export default class AddFKUsersToBusiness1593376198006
     await queryRunner.addColumn(
       'business',
       new TableColumn({
-        name: 'users_id',
+        name: 'user_id',
         type: 'uuid'
       })
     );
@@ -19,7 +19,7 @@ export default class AddFKUsersToBusiness1593376198006
     await queryRunner.createForeignKey(
       'business',
       new TableForeignKey({
-        columnNames: ['users_id'],
+        columnNames: ['user_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onDelete: 'CASCADE',

@@ -17,11 +17,11 @@ class Person {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ name: 'users_id' })
+  @Column({ name: 'user_id' })
   userId: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'users_id', referencedColumnName: 'id' })
+  @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user: User;
 
   @Column({ name: 'name' })

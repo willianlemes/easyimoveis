@@ -12,7 +12,7 @@ class FindUserService {
     });
 
     if (!user) {
-      throw new AppError('Não há usuários cadastrados');
+      throw new AppError('Não há usuário cadastrado com esse ID.');
     }
 
     return user;

@@ -10,7 +10,7 @@ class ListPeopleService {
     const people = await peopleRepository.find();
 
     if (!people || people.length < 1) {
-      throw new AppError('No people registered ');
+      throw new AppError('Não há pessoas cadastradas.');
     }
 
     return people;

@@ -5,6 +5,7 @@ import FindPropertiesByUserService from '../services/properties/FindPropertiesBy
 import FindPropertiesByOwnerService from '../services/properties/FindPropertiesByOwnerService';
 import UpdateRealtyService from '../services/properties/UpdateRealtyService';
 import ListPropertiesService from '../services/properties/ListPropertiesService';
+import FindPropertiesById from '../services/properties/FindPropertiesById';
 
 const propertiesRouter = Router();
 
@@ -52,6 +53,14 @@ propertiesRouter.get('/owner/:owner_id', async (request, response) => {
   const properties = await findPropertiesByOwner.execute(owner_id);
 
   return response.json({ properties });
+});
+
+propertiesRouter.get('/:id', async (request, response) => {
+  const findPropertiesById = new FindPropertiesById();
+
+  const realty = await findPropertiesById.execute(request.params.id);
+
+  return response.json({ realty });
 });
 
 export default propertiesRouter;

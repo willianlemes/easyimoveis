@@ -31,10 +31,7 @@ class CreateUserService {
     const checkUserExists = await usersRepository.findByEmail(email);
 
     if (checkUserExists) {
-      throw new AppError(
-        'Já existe um usuário cadastrado com esse e-mail.',
-        500
-      );
+      throw new AppError('Já existe um usuário cadastrado com esse e-mail.');
     }
 
     if (genre && !['M', 'F', 'O'].includes(genre)) {

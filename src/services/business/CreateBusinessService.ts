@@ -33,7 +33,7 @@ class CreateBusinessService {
     const peopleRepository = getCustomRepository(PeopleRepository);
     const propertiesRepository = getCustomRepository(PropertiesRepository);
 
-    const user = usersRepository.findOne({
+    const user = await usersRepository.findOne({
       where: {
         id: userId
       }, // select id from users
@@ -44,7 +44,7 @@ class CreateBusinessService {
       throw new AppError('O usuário vinculado ao negócio não existe.');
     }
 
-    const customer = peopleRepository.findOne({
+    const customer = await peopleRepository.findOne({
       where: {
         id: customerId
       },
@@ -55,7 +55,7 @@ class CreateBusinessService {
       throw new AppError('O cliente vinculado ao negócio não existe.');
     }
 
-    const realty = propertiesRepository.findOne({
+    const realty = await propertiesRepository.findOne({
       where: {
         id: realtyId
       },

@@ -42,7 +42,7 @@ export default class CreateTableUsers1593048139766
           {
             name: 'genre',
             type: 'varchar',
-            length: '10'
+            length: '1'
           },
           {
             name: 'date_birth',
