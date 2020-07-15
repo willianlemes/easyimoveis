@@ -1,9 +1,11 @@
+import { Profile } from '../../../enums';
+
 export default interface RequestUpdatePeople {
   id: string;
   userId: string;
   name: string;
   nickname: string;
-  profile: string;
+  profile: Profile;
   type: string;
   genre?: string;
   datebirth?: Date;

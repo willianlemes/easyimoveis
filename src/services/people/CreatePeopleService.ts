@@ -3,7 +3,7 @@ import Person from '../../models/Person';
 import PeopleRepository from '../../repositories/PeopleRepository';
 import AppError from '../../errors/AppError';
 import RequestCreatePeople from './interfaces/RequestCreatePeople';
-import { Status } from '../../enums';
+import { Status, Profile } from '../../enums';
 
 class CreatePeopleService {
   public async execute({
@@ -46,10 +46,9 @@ class CreatePeopleService {
       throw new AppError('O tipo da pessoa não é válido.');
     }
 
-    if (
-      profile &&
-      !['Customer', 'Broker', 'Interested', 'Other'].includes(profile)
-    ) {
+    const { CUSTOMER, BROKER, INTERESTED, OTHER } = Profile;
+
+    if (profile && ![CUSTOMER, BROKER, INTERESTED, OTHER].includes(profile)) {
       throw new AppError('O perfil cadastrado não é válido');
     }
 

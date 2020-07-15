@@ -1,8 +1,10 @@
+import { Profile } from '../../../enums';
+
 export default interface RequestCreatePeople {
   userId: string;
   name: string;
   nickname: string;
-  profile: string;
+  profile: Profile;
   type: string;
   genre?: string;
   datebirth?: Date;
