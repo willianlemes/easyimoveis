@@ -1,12 +1,12 @@
-import { Profile } from '../../../enums';
+import { Profile, Type, Genre } from '../../../enums';
 
 export default interface RequestCreatePeople {
   userId: string;
   name: string;
   nickname: string;
   profile: Profile;
-  type: string;
-  genre?: string;
+  type: Type;
+  genre?: Genre;
   datebirth?: Date;
   rgIe?: string;
   cpfCnpj?: string;

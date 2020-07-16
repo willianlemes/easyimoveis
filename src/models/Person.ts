@@ -64,7 +64,7 @@ class Person {
   address: string;
 
   @Column({ name: 'address_number', nullable: true })
-  address_number: string;
+  addressNumber: string;
 
   @Column({ name: 'neighborhood', nullable: true })
   neighborhood: string;

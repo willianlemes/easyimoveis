@@ -2,12 +2,15 @@ import { getRepository } from 'typeorm';
 
 import Realty from '../../models/Realty';
 
-import Request from './interfaces/Request';
+import RequestUpdateRealty from './interfaces/RequestUpdateRealty';
 
 import AppError from '../../errors/AppError';
 
 class UpdateRealtyService {
-  async execute(id: string, request: Request): Promise<Realty | undefined> {
+  async execute(
+    id: string,
+    request: RequestUpdateRealty
+  ): Promise<Realty | undefined> {
     const realtyRepository = getRepository(Realty);
 
     const realtyFound = await realtyRepository.findOne(id);

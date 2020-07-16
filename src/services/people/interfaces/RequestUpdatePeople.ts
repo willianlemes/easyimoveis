@@ -1,4 +1,4 @@
-import { Profile } from '../../../enums';
+import { Profile, Type, Genre, Status } from '../../../enums';
 
 export default interface RequestUpdatePeople {
   id: string;
@@ -6,8 +6,8 @@ export default interface RequestUpdatePeople {
   name: string;
   nickname: string;
   profile: Profile;
-  type: string;
-  genre?: string;
+  type: Type;
+  genre?: Genre;
   datebirth?: Date;
   rgIe?: string;
   cpfCnpj?: string;
@@ -22,5 +22,5 @@ export default interface RequestUpdatePeople {
   state?: string;
   city?: string;
   photo?: string;
-  status?: string;
+  status?: Status;
 }

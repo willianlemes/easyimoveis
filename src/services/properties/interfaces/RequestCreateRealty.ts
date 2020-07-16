@@ -1,4 +1,4 @@
-import { Finality, Status } from '../../../enums';
+import { Finality } from '../../../enums';
 
 export default interface Request {
   userId: string;
@@ -24,5 +24,4 @@ export default interface Request {
   numberRoom?: number;
   carsCapacity?: number;
   isFurnished: boolean;
-  status: Status;
 }

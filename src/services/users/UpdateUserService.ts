@@ -3,16 +3,17 @@ import { hash } from 'bcryptjs';
 import User from '../../models/User';
 import UsersRepository from '../../repositories/UsersRepository';
 import AppError from '../../errors/AppError';
+import { Genre, Status } from '../../enums';
 
 interface Request {
   id: string;
   firstName: string;
   lastName: string;
   password: string;
-  genre: string;
+  genre: Genre;
   dateBirth: Date;
   photo: string;
-  status: string;
+  status: Status;
 }
 
 class UpdateUserService {

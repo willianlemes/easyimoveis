@@ -1,6 +1,6 @@
-enum TypePerson {
+enum Type {
   PHYSISCS = 'F',
   JURIDICAL = 'J'
 }
 
-export default TypePerson;
+export default Type;
