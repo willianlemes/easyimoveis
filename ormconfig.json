@@ -5,7 +5,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "easyimoveis",
+  "database": "postgresql-trapezoidal-46685",
   "entities": ["./src/models/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
   "seeds": ["./src/database/seeds/*.ts"],
