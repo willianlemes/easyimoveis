@@ -6,3 +6,6 @@ node_modules
 
 # Arquivos dos Sistemas Operacionais
 .DS_Store
+
+.env
+
