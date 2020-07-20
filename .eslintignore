@@ -1,0 +1,5 @@
+# Módulos do node.js
+node_modules
+
+# Arquivos de produção
+dist

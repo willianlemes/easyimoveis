@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev:server": "cross-env NODE_ENV=development ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
-    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "start": "export NODE_ENV=production && node dist/server.js",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
     "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
