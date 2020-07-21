@@ -51,15 +51,15 @@
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3"
   },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged --allow-empty"
     }
+  },
+  "lint-staged": {
+    "*.[tj]s": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
