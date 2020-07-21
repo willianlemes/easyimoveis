@@ -4,13 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "dev:server": "cross-env NODE_ENV=development ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
+    "build": "shx rm -rf dist && tsc",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
     "start": "export NODE_ENV=production && node dist/server.js",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "seed:config:dev": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
-    "seed:run:dev": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
-    "seed:run": "node ./node_modules/typeorm-seeding/dist/cli.js seed"
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -45,7 +44,9 @@
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
+    "shx": "^0.3.2",
     "ts-node": "3.3.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3"
