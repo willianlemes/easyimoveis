@@ -1,8 +1,8 @@
 enum ProfilePerson {
-  CUSTOMER = 'Customer',
-  BROKER = 'Broker',
-  INTERESTED = 'Interested',
-  OTHER = 'Other'
+  CUSTOMER = 'customer',
+  BROKER = 'broker',
+  INTERESTED = 'interested',
+  OTHER = 'other'
 }
 
 export default ProfilePerson;

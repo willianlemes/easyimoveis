@@ -6,63 +6,12 @@ import {
   ManyToOne,
   JoinColumn,
   CreateDateColumn,
-  UpdateDateColumn,
-  ValueTransformer
+  UpdateDateColumn
 } from 'typeorm';
 
 import User from './User';
 
 import { Type, Genre, Status, Profile } from '../enums';
-
-interface IProfileTransformer {
-  value: string;
-  label: string;
-}
-
-const ProfileTransformer: ValueTransformer = {
-  from: dbValue => {
-    let profileName = '';
-
-    switch (dbValue) {
-      case Profile.CUSTOMER:
-        profileName = 'Cliente';
-        break;
-      case Profile.BROKER:
-        profileName = 'Corretor';
-        break;
-      case Profile.INTERESTED:
-        profileName = 'Interessado';
-        break;
-      default:
-        profileName = 'Outro';
-        break;
-    }
-    return { value: dbValue, label: profileName };
-  },
-  to: entityValue => entityValue
-};
-
-interface ITypeTransformer {
-  value: string;
-  label: string;
-}
-
-const TypeTransformer: ValueTransformer = {
-  from: dbValue => {
-    let typeName = '';
-
-    switch (dbValue) {
-      case Type.JURIDICAL:
-        typeName = 'Jurídica';
-        break;
-      default:
-        typeName = 'Física';
-        break;
-    }
-    return { value: dbValue, label: typeName };
-  },
-  to: entityValue => entityValue
-};
 
 @Entity('people')
 class Person {
@@ -82,16 +31,15 @@ class Person {
   @Column({ name: 'nickname' })
   nickname: string;
 
-  @Column({ type: 'varchar', transformer: ProfileTransformer })
-  profile: IProfileTransformer;
+  @Column({ type: 'varchar' })
+  profile: Profile;
 
   @Column({
     type: 'varchar',
     length: 1,
-    default: Type.PHYSISCS,
-    transformer: TypeTransformer
+    default: Type.PHYSISCS
   })
-  type: ITypeTransformer;
+  type: Type;
 
   @Column({ type: 'varchar', nullable: true })
   genre: Genre;
